@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 
 class Tasks extends Model
 {
@@ -27,5 +28,16 @@ class Tasks extends Model
     public function comments():hasMany
     {
         return $this->hasMany(Comments::class);
+    }
+
+    public function scopeFilterByStatus($query, $status)
+    {
+        return $query->where('task_status_id', $status);
+    }
+
+    public function scopeFilterByDueDate($query, $duedate)
+    {
+        $dueDate = Carbon::parse($duedate);
+        return $query->whereDate('duedate', '<', $dueDate);
     }
 }

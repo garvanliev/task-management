@@ -1,3 +1,0 @@
-<div>
-    Hi Admin
-</div>
