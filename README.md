@@ -40,21 +40,27 @@ List the key features of the project.
     composer install
     ```
 
-4. Create a copy of the `.env.example` file and rename it to `.env`. Update the database connection and other necessary configuration options.
+5. Install JavaScript dependencies:
 
-5. Generate an application key:
+    ```bash
+    npm install
+    ```
+
+6. Create a copy of the `.env.example` file and rename it to `.env`. Update the database connection and other necessary configuration options.
+
+7. Generate an application key:
 
     ```bash
     php artisan key:generate
     ```
 
-6. Run database migrations:
+8. Run database migrations:
 
     ```bash
     php artisan migrate
     ```
 
-7. Create admin user with terminal
+9. Create admin user with terminal
 
     ```bash
     php artisan app:create-admin-user
