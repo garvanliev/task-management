@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(App\Models\Tasks::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(App\Models\User::class)->constrained();
             $table->text('description');
             $table->timestamps();
         });
